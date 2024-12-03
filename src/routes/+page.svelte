@@ -33,7 +33,7 @@
 		<button
 			class="rounded-lg border border-black p-6"
 			on:click={() => {
-				if (hRate >= 8) return;
+				if (hRate >= 12) return;
 				hRate++;
 			}}>+</button
 		>
