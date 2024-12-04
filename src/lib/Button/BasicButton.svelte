@@ -1,13 +1,13 @@
 <script lang="ts">
 	export let onClick: () => void;
 	export let isProcessing: boolean = false;
-	export let xSmPadding: number = 12;
+	export let className: string = '';
 
 	let isClick: boolean = false;
 </script>
 
 <button
-	class={`mt-4 rounded px-${xSmPadding} py-2 text-white sm:px-12 ${isClick && 'scale-[.95] '} ${isProcessing ? 'bg-gray-400' : 'bg-hitomi-button hover:shadow-lg'}`}
+	class={`text-text-dark h-full w-full rounded ${isClick && 'scale-[.95] '} ${isProcessing ? 'bg-gray-500 text-gray-300' : 'bg-hitomi-button hover:shadow-lg'} ${className}`}
 	onmousedown={() => (isClick = true)}
 	onmouseup={() => (isClick = false)}
 	onclick={onClick}

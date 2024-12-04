@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Button from '$lib/Button.svelte';
+	import HitomiButton from '$lib/Button/HitomiButton.svelte';
+	import ScalingButton from '$lib/Button/ScalingButton.svelte';
 	import Form from '$lib/Form.svelte';
 	import HitomiLoader from '$lib/HitomiLoader.svelte';
 	import Welcome from '$lib/Welcome.svelte';
@@ -13,7 +14,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.targetUrl ? data.targetUrl : $t('common.welcome-page.title')}</title>
+	<title>{data.targetUrl ? data.targetUrl : $t('common.title')}</title>
 </svelte:head>
 
 <div class="px-4 py-12">
@@ -23,41 +24,49 @@
 
 {#if data.hrefList}
 	<div class="flex items-center justify-center space-x-4 md:hidden">
-		<Button xSmPadding={4} onClick={() => (isLeft = true)}>{$t('common.leftHand')}</Button>
-		<Button xSmPadding={4} onClick={() => (isLeft = false)}>{$t('common.rightHand')}</Button>
+		<HitomiButton onClick={() => (isLeft = true)}>
+			{$t('common.leftHand')}
+		</HitomiButton>
+		<HitomiButton onClick={() => (isLeft = false)}>
+			{$t('common.rightHand')}
+		</HitomiButton>
 	</div>
 
 	<div
-		class={`fixed bottom-4 flex flex-col space-y-2 rounded-lg bg-gray-200 p-2 ${isLeft ? 'left-4' : 'right-4'}`}
+		class={`fixed bottom-4 flex flex-col space-y-2 rounded-lg p-2 ${isLeft ? 'left-4' : 'right-4'}`}
 	>
-		<button
-			class="rounded-lg border border-black p-6"
-			on:click={() => {
+		<ScalingButton
+			onClick={() => {
 				if (hRate >= 12) return;
 				hRate++;
-			}}>+</button
+			}}
 		>
-		<button
-			class="rounded-lg border border-black p-6"
-			on:click={() => {
+			<span class="text-xl">+</span>
+		</ScalingButton>
+		<ScalingButton
+			onClick={() => {
 				if (hRate <= 2) return;
 				hRate--;
-			}}>-</button
+			}}
 		>
+			<span class="text-xl">-</span>
+		</ScalingButton>
 	</div>
 
 	<div class="mt-4">
 		<HitomiLoader bind:isLeft bind:hRate urlList={data.hrefList} />
 	</div>
 
-	<div class="p-12 text-center">
-		<Button
+	<div class="flex justify-center p-12">
+		<HitomiButton
 			onClick={() => {
 				window.scrollTo({
 					top: 0,
 					behavior: 'smooth'
 				});
-			}}>{$t('common.backToTop')}</Button
+			}}
 		>
+			{$t('common.backToTop')}
+		</HitomiButton>
 	</div>
 {/if}

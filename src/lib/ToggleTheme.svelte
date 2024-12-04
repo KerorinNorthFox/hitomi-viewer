@@ -1,5 +1,5 @@
 <script lang="ts">
-	let isDarkMode = true;
+	let isDarkMode = false;
 
 	function handleSwitchDarkMode() {
 		isDarkMode = !isDarkMode;
@@ -10,7 +10,12 @@
 	}
 </script>
 
-<button class="h-full w-full" on:click={handleSwitchDarkMode} aria-label="a" aria-labelledby="a">
+<button
+	class="bg-hitomi-primary dark:bg-header-dark hover:bg-hover dark:hover:bg-hover rounded-md p-2"
+	on:click={handleSwitchDarkMode}
+	aria-label="a"
+	aria-labelledby="a"
+>
 	<div>
 		<svg width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 			<path

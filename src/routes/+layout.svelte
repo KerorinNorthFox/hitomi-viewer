@@ -9,7 +9,7 @@
 	loadTranslations(defaultLanguage, '/');
 </script>
 
-<main class="bg-white dark:bg-gray-600">
+<main class="bg-bg-light dark:bg-bg-dark">
 	<Header />
 	<div class="pt-header mx-auto min-h-screen xl:max-w-[70%]">
 		{@render children()}

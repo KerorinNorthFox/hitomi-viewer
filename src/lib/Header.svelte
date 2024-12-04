@@ -13,12 +13,14 @@
 </script>
 
 <header>
-	<div class="bg-hitomi-primary h-header fixed w-screen text-white shadow-md dark:bg-gray-700">
+	<div
+		class="bg-hitomi-primary dark:bg-header-dark h-header text-text-dark fixed w-screen shadow-md"
+	>
 		<div class="flex h-full items-center justify-between">
 			<div class="p-4">
 				<a class="text-xl" href="/">Hitomi Viewer</a>
 			</div>
-			<div class="flex h-full items-center justify-center space-x-4 py-4 pr-8">
+			<div class="flex h-full items-center justify-center space-x-4 pr-8">
 				<ToggleTheme />
 				<Dropdown label={language.toUpperCase()} bind:isOpen>
 					<DropdownContent
