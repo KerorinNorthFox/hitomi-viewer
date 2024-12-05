@@ -1,7 +1,7 @@
 {
 	"title": "ようこそ | Hitomi Viewer",
 	"welcome": "Hitomi Viewerへようこそ！",
-	"description": "hitomi.laなどに対応した縦スクロールビューワーです",
+	"description": "hitomi.laに対応した縦スクロールビューワーです",
 	"convertButton": "変換",
 	"converting": "変換中...",
 	"backToTop": "一番上に戻る",

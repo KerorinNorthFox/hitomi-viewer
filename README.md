@@ -1,38 +1,60 @@
-# sv
+# Hitomi Viewer
+A vertical scroll viewer compatible [hitomi.la](https://hitomi.la).
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+[hitomi.la](https://hitomi.la)に対応した縦スクロールビューワーです。
 
-## Creating a project
+# Feature
+## Vertical scrolling (縦スクロール機能)
+縦にスクロールするだけで見れるようにしました。
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Switch hands (持ち手切り替え機能)
+スマホでの使用時、右手と左手でスクロールしやすくするためにコンテンツを片側に偏らせます。
 
+## Hide unnecessary page (非表示機能)
+不要なページを非表示にできます
+
+# Usage
+貧乏すぎてサーバーを準備できないので、個別でサーバー立てて実行してください。
+
+同じネットワーク内ならば、localhostで実行したサーバーに他端末でアクセスできます。
+## 手順
+1. node.jsをpcにインストールする。
+ 
+https://nodejs.org/en/download/package-manager
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+// インストールできているか確認
+$ node --version
+$ npm --version
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+2. このrepositoryをcloneする
 ```bash
-npm run dev
+$ git clone git@github.com:KerorinNorthFox/hitomi-viewer.git
+```
+3. 依存関係をインストールする
+```bash
+$ cd hitomi-viewer
+$ npm install
+```
+4. アプリをビルドする
+```
+$ npm run build
+```
+5. サーバーを立ててアプリを実行する
+```
+// nodejsでサーバーを立てます
+$ node build
+Listening on 0.0.0.0:3000 // 3000番ポートでサーバーを実行
+```
+6. サーバーにアクセスする
+```
+"http://自分のローカルipアドレス:3000/" でアクセス可能
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+ipアドレスは
+$ ipconfig
+で"Wireless LAN adapter Wi-Fi"の"IPv4 アドレス"を確認する (192.168.x.x)
 ```
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+# Precautions of use (使用上の注意)
+1. 元サイトの特性により、画像をそのまま表示する方法ではなくiframeタグで元サイトのreaderページを縦に並べる仕組みになっています。そのためブラウザがとても重くなる他、最悪ブラウザが落ちる可能性があります。
+2. サーバーでは変換実行時に元サイトのスクレイピングを行います。
