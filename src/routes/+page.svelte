@@ -10,11 +10,12 @@
 	export let data: PageServerData;
 
 	let hRate: number = 8;
+	let wRate: number = 8;
 	let isLeft: boolean = true;
 </script>
 
 <svelte:head>
-	<title>{data.targetUrl ? data.targetUrl : $t('common.title')}</title>
+	<title>{data.title ? `${data.title} | Hitomi Viewer` : $t('common.title')}</title>
 </svelte:head>
 
 <div class="px-4 py-12">
@@ -32,10 +33,10 @@
 		</HitomiButton>
 	</div>
 
-	<ScalingChanger {isLeft} bind:hRate />
+	<ScalingChanger {isLeft} bind:hRate bind:wRate />
 
 	<div class="mt-4">
-		<HitomiLoader bind:isLeft bind:hRate urlList={data.hrefList} />
+		<HitomiLoader bind:isLeft bind:hRate bind:wRate urlList={data.imageByteUrlList} />
 	</div>
 
 	<div class="flex justify-center p-12">

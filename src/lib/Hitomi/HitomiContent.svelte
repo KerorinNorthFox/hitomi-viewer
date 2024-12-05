@@ -10,15 +10,14 @@
 </script>
 
 <div class={`flex md:justify-center ${isLeft ? 'justify-end' : 'justify-start'}`}>
-	<iframe
-		class={`${isVisible ? 'block' : 'hidden'}`}
-		style="pointer-events: none"
-		loading="lazy"
-		width={`${wRate}0%`}
-		height={hRate * 100}
+	<img
+		class={`m-1 shadow ${isVisible ? 'block' : 'hidden'}`}
 		src={url}
-		title=""
-	></iframe>
+		width={`${wRate}0%`}
+		height={`${hRate}0%`}
+		loading="lazy"
+		alt=""
+	/>
 	<div class={`${isLeft ? 'order-last' : ''} m-1 h-8 w-8`}>
 		<BasicButton className="flex justify-center p-1" onClick={() => (isVisible = !isVisible)}>
 			{#if isVisible}

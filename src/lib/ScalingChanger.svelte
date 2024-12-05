@@ -2,6 +2,7 @@
 	import ScalingButton from '$lib/Button/ScalingButton.svelte';
 
 	export let hRate: number;
+	export let wRate: number;
 	export let isLeft: boolean;
 </script>
 
@@ -10,8 +11,8 @@
 >
 	<ScalingButton
 		onClick={() => {
-			if (hRate >= 12) return;
-			hRate++;
+			if (hRate < 12) hRate++;
+			if (wRate < 12) wRate++;
 		}}
 	>
 		<!-- <span class="text-xl">+</span> -->
@@ -33,8 +34,8 @@
 	</ScalingButton>
 	<ScalingButton
 		onClick={() => {
-			if (hRate <= 2) return;
-			hRate--;
+			if (hRate > 2) hRate--;
+			if (wRate > 2) wRate--;
 		}}
 	>
 		<!-- <span class="text-xl">-</span> -->
