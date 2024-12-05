@@ -1,8 +1,8 @@
 <script lang="ts">
 	import HitomiButton from '$lib/Button/HitomiButton.svelte';
-	import ScalingButton from '$lib/Button/ScalingButton.svelte';
 	import Form from '$lib/Form.svelte';
 	import HitomiLoader from '$lib/Hitomi/HitomiLoader.svelte';
+	import ScalingChanger from '$lib/ScalingChanger.svelte';
 	import Welcome from '$lib/Welcome.svelte';
 	import { t } from '$lib/translations/translations';
 	import type { PageServerData } from './$types';
@@ -32,26 +32,7 @@
 		</HitomiButton>
 	</div>
 
-	<div
-		class={`fixed bottom-4 flex flex-col space-y-2 rounded-lg p-2 ${isLeft ? 'left-4' : 'right-4'}`}
-	>
-		<ScalingButton
-			onClick={() => {
-				if (hRate >= 12) return;
-				hRate++;
-			}}
-		>
-			<span class="text-xl">+</span>
-		</ScalingButton>
-		<ScalingButton
-			onClick={() => {
-				if (hRate <= 2) return;
-				hRate--;
-			}}
-		>
-			<span class="text-xl">-</span>
-		</ScalingButton>
-	</div>
+	<ScalingChanger {isLeft} bind:hRate />
 
 	<div class="mt-4">
 		<HitomiLoader bind:isLeft bind:hRate urlList={data.hrefList} />

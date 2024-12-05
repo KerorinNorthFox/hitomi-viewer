@@ -11,7 +11,7 @@
 
 <div class="p-12 text-center">
 	<input
-		class="text-text-light w-full appearance-none rounded border px-3 py-2 leading-tight shadow focus:outline-none"
+		class="text-text-light w-full appearance-none rounded border px-3 py-2 leading-tight shadow-md focus:outline-none"
 		id="url"
 		type="text"
 		placeholder="URL"

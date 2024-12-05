@@ -7,7 +7,7 @@
 	export let isLeft: boolean = false;
 </script>
 
-<div style="pointer-events: none;">
+<div>
 	{#each urlList as url}
 		<HitomiContent {url} {isLeft} {wRate} {hRate} />
 	{/each}

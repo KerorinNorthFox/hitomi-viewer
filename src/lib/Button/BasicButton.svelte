@@ -3,13 +3,13 @@
 	export let isProcessing: boolean = false;
 	export let className: string = '';
 
-	let isClick: boolean = false;
+	let isClicking: boolean = false;
 </script>
 
 <button
-	class={`text-text-dark h-full w-full rounded ${isClick && 'scale-[.95] '} ${isProcessing ? 'bg-gray-500 text-gray-300' : 'bg-hitomi-button hover:shadow-lg'} ${className}`}
-	onmousedown={() => (isClick = true)}
-	onmouseup={() => (isClick = false)}
+	class={`h-full w-full rounded transition-all duration-300 ease-in-out ${isClicking && 'scale-[.95]'} ${isProcessing ? 'text-text-light border border-black bg-white' : 'bg-hitomi-button text-text-dark hover:shadow-lg'} ${className}`}
+	onmousedown={() => (isClicking = true)}
+	onmouseup={() => (isClicking = false)}
 	onclick={onClick}
 >
 	<slot />
