@@ -11,6 +11,7 @@
 	onmousedown={() => (isClicking = true)}
 	onmouseup={() => (isClicking = false)}
 	onclick={onClick}
+	disabled={isProcessing}
 >
 	<slot />
 </button>
