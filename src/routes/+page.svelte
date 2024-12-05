@@ -2,7 +2,7 @@
 	import HitomiButton from '$lib/Button/HitomiButton.svelte';
 	import ScalingButton from '$lib/Button/ScalingButton.svelte';
 	import Form from '$lib/Form.svelte';
-	import HitomiLoader from '$lib/HitomiLoader.svelte';
+	import HitomiLoader from '$lib/Hitomi/HitomiLoader.svelte';
 	import Welcome from '$lib/Welcome.svelte';
 	import { t } from '$lib/translations/translations';
 	import type { PageServerData } from './$types';
