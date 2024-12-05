@@ -23,7 +23,7 @@
 	<Form />
 </div>
 
-{#if data.hrefList}
+{#if data.imageByteUrlList}
 	<div class="flex items-center justify-center space-x-4 md:hidden">
 		<HitomiButton onClick={() => (isLeft = true)}>
 			{$t('common.leftHand')}

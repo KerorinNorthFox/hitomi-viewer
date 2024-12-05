@@ -51,26 +51,5 @@ export const load: PageServerLoad = async ({ fetch, url }) => {
 		imageByteUrlList.push(dataUrl);
 	}
 
-	const response = await fetch('/api/content', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application.json'
-		},
-		body: JSON.stringify({ url: targetUrl })
-	});
-
-	if (!response.ok) {
-		console.log(response.status);
-		console.log(response.body);
-		return;
-	}
-
-	const hrefList: Array<string> = await response.json();
-
-	if (hrefList.length <= 0) {
-		console.log('hrefList is empty');
-		return;
-	}
-
-	return { hrefList, title, imageByteUrlList }; // TODO: targetUrlのところを作品名に変更する <- +server.tsから持ってくる
+	return { title, imageByteUrlList }; // TODO: targetUrlのところを作品名に変更する <- +server.tsから持ってくる
 };
